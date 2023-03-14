@@ -32,14 +32,14 @@ const Login = () => {
         <div className="login__form">
           <h3>Login</h3>
           <input
-            className="inputs"
+            className="login__inputs"
             type="email"
             name="login"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            className="inputs"
+            className="login__inputs"
             type="password"
             name="password"
             value={password}

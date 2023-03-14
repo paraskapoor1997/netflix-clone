@@ -39,12 +39,12 @@ const Signup = () => {
     <div>
       <Navbar />
       <BackgroundImage />
-      <div className="login__container">
+      <div className="signup__container">
         <div className="line__height">
           <h1>Unlimited movies, TV shows and more.</h1>
         </div>
         <div className="line__height">
-          <h3>Watch anywhere. Cancel anytime.</h3>
+          <h3>Watch anywhere. Cancel sanytime.</h3>
         </div>
         <div className="line__height">
           <h3>Ready to watch? Enter your email to create or restart your membership.</h3>

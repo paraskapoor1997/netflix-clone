@@ -1,3 +1,16 @@
+.login__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  color: white;
+}
 .login__form {
   gap: 1rem;
   height: 350px;
@@ -18,7 +31,7 @@
   font-weight: bold;
 }
 
-.inputs {
+.login__inputs {
   color: black;
   border: none;
   padding: 0.5rem;
@@ -51,7 +64,7 @@
     font-size: 1rem;
     font-weight: bold;
   }
-  .inputs {
+  .login__inputs {
     width: 100% !important;
     color: black;
     border: none;
