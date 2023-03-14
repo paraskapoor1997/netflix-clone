@@ -6,13 +6,10 @@ import "./App.css";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
-import { UserContext } from "./context/user-context";
 import Player from "./components/Player";
 import { UserAuth } from "./context/AuthContext";
 
 function App() {
-  const ctx = useContext(UserContext);
-
   const { user } = UserAuth();
 
   console.log("user", user);

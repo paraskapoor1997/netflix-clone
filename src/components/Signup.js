@@ -1,13 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { firebaseConfig } from "./../firebaseConfig";
-import background from "../assets/login.avif";
 import BackgroundImage from "./BackgroundImage";
 import "./Signup.css";
 import Navbar from "./Navbar";
-import { UserContext } from "../context/user-context";
 import { UserAuth } from "../context/AuthContext";
 
 const Signup = () => {
@@ -19,10 +14,6 @@ const Signup = () => {
   let navigate = useNavigate();
 
   const { createUser } = UserAuth();
-  let ctx = useContext(UserContext);
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
 
   const signInHandler = async (e) => {
     e.preventDefault();
