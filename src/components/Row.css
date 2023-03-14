@@ -32,3 +32,26 @@
 .row__posterlarge:hover {
   transform: scale(1.09);
 }
+.row__skeleton {
+  width: 250px;
+  height: 100px;
+  margin-left: 15px;
+  animation: skeleton-loading 0.7s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(0, 11%, 41%);
+  }
+  100% {
+    background-color: hsl(210, 2%, 18%);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .row__skeleton {
+    width: 250px;
+    height: 50px;
+    margin-left: 15px;
+  }
+}
