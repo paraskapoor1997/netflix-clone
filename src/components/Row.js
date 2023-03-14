@@ -3,13 +3,14 @@ import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
 import axios from "../axios";
 import "./Row.css";
+import { useNavigate } from "react-router-dom";
 
 const baseurl = `https://image.tmdb.org/t/p/original/`;
 
 const Row = ({ title, fetchUrl, isLargeRow }) => {
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
-
+  const navigate = useNavigate();
   const opts = {
     height: "390px",
     width: "100%",
@@ -27,16 +28,18 @@ const Row = ({ title, fetchUrl, isLargeRow }) => {
   }, []);
 
   const handleClick = (movie) => {
-    if (trailerUrl) {
-      setTrailerUrl("");
-    } else {
-      movieTrailer(movie?.name || movie?.title || "")
-        .then((url) => {
-          const urlparams = new URLSearchParams(new URL(url).search);
-          setTrailerUrl(urlparams.get("v"));
-        })
-        .catch((err) => console.log(err));
-    }
+    // console.log("movie", movie);
+    // if (trailerUrl) {
+    //   setTrailerUrl("");
+    // } else {
+    //   movieTrailer(movie?.name || movie?.title || "")
+    //     .then((url) => {
+    //       const urlparams = new URLSearchParams(new URL(url).search);
+    //       setTrailerUrl(urlparams.get("v"));
+    //     })
+    //     .catch((err) => console.log(err));
+    // }
+    navigate("/player", { state: { movie } });
   };
 
   return (

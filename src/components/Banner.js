@@ -3,9 +3,13 @@ import { useEffect } from "react";
 import axios from "../axios";
 import requests from "./../requests";
 import "./Banner.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import Player from "./Player";
 
 const Banner = () => {
   const [movie, setMovie] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +23,10 @@ const Banner = () => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
 
+  const play = (movie) => {
+    navigate("/player", { state: { movie } });
+  };
+
   return (
     <header
       className="banner"
@@ -31,7 +39,9 @@ const Banner = () => {
       <div className="banner__contents">
         <h1 className="banner__title">{movie?.title || movie?.name || movie?.original_name}</h1>
         <div className="banner__buttons">
-          <button className="banner__button">Play</button>
+          <button onClick={() => play(movie)} className="banner__button">
+            Play
+          </button>
           <button className="banner__button">My List</button>
         </div>
 

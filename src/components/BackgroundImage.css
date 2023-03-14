@@ -1,0 +1,9 @@
+.background__image__container {
+  height: 100vh;
+  width: 100vw;
+}
+.background__image__container img {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+}

@@ -3,6 +3,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [show, handleShow] = useState(false);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
@@ -11,9 +12,9 @@ const Navbar = () => {
         handleShow(false);
       }
     });
-    return () => {
-      window.removeEventListener("scroll");
-    };
+    // return () => {
+    //   window.removeEventListener("scroll");
+    // };
   }, []);
   return (
     <div className={`nav ${show && "nav__black"}`}>

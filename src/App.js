@@ -1,22 +1,35 @@
-import Row from "./components/Row";
-import requests from "./requests";
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+
 import "./App.css";
-import Banner from "./components/Banner";
-import Navbar from "./components/Navbar";
+
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Signup from "./components/Signup";
+import { UserContext } from "./context/user-context";
+import Player from "./components/Player";
+import { UserAuth } from "./context/AuthContext";
+
 function App() {
+  const ctx = useContext(UserContext);
+
+  const { user } = UserAuth();
+
+  console.log("user", user);
+
   return (
-    <div className="App">
-      <Navbar />
-      <Banner />
-      <Row title="Netflix Original" fetchUrl={requests.fetchNetflixOriginals} isLargeRow />
-      <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-      <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
-      <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
-      <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-      <Row title="Horrow Movies" fetchUrl={requests.fetchHorrorMovies} />
-      <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
-      <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/test" element={<Home />} />
+          <Route path="/player" element={<Player />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
