@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./Login.css";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import BackgroundImage from "./BackgroundImage";
 import { UserAuth } from "../context/AuthContext";
@@ -48,6 +48,13 @@ const Login = () => {
           <button className="login__button" onClick={signInHandler} type="submit">
             Submit
           </button>
+          <div className="new__user">
+            New User?{" "}
+            <Link style={{ marginLeft: "10px" }} to="/signup">
+              {" "}
+              SignUp
+            </Link>
+          </div>
         </div>
       </div>
     </div>
